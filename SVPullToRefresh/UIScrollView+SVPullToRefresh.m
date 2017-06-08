@@ -65,7 +65,7 @@ static char UIScrollViewPullToRefreshView;
 - (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler {
     
     if(!self.pullToRefreshView) {
-        SVPullToRefreshView *view = [[SVPullToRefreshView alloc] initWithFrame:CGRectMake(0, -SVPullToRefreshViewHeight, self.bounds.size.width, SVPullToRefreshViewHeight)];
+        SVPullToRefreshView *view = [[SVPullToRefreshView alloc] initWithFrame:CGRectMake(0, -SVPullToRefreshViewHeight - self.contentInset.top, self.bounds.size.width, SVPullToRefreshViewHeight)];
         view.pullToRefreshActionHandler = actionHandler;
         view.scrollView = self;
         [self addSubview:view];
