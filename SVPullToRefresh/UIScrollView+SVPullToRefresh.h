@@ -15,10 +15,10 @@
 
 @interface UIScrollView (SVPullToRefresh)
 
-- (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler;
+- (void)addPullToRefreshWithActionHandler:(nullable void (^)(void))actionHandler;
 - (void)triggerPullToRefresh;
 
-@property (nonatomic, strong, readonly) SVPullToRefreshView *pullToRefreshView;
+@property (nullable, nonatomic, strong, readonly) SVPullToRefreshView *pullToRefreshView;
 @property (nonatomic, assign) BOOL showsPullToRefresh;
 
 @end
@@ -35,26 +35,26 @@ typedef NSUInteger SVPullToRefreshState;
 
 @interface SVPullToRefreshView : UIView
 
-@property (nonatomic, strong) UIColor *arrowColor;
-@property (nonatomic, strong) UIColor *textColor;
-@property (nonatomic, strong, readonly) UILabel *titleLabel;
-@property (nonatomic, strong, readonly) UILabel *subtitleLabel;
+@property (nonnull, nonatomic, strong) UIColor *arrowColor;
+@property (nonnull, nonatomic, strong) UIColor *textColor;
+@property (nonnull, nonatomic, strong, readonly) UILabel *titleLabel;
+@property (nonnull, nonatomic, strong, readonly) UILabel *subtitleLabel;
 @property (nonatomic, readwrite) UIActivityIndicatorViewStyle activityIndicatorViewStyle;
 
 @property (nonatomic, readonly) SVPullToRefreshState state;
 
-- (void)setTitle:(NSString *)title forState:(SVPullToRefreshState)state;
-- (void)setSubtitle:(NSString *)subtitle forState:(SVPullToRefreshState)state;
-- (void)setCustomView:(UIView *)view forState:(SVPullToRefreshState)state;
+- (void)setTitle:(nonnull NSString *)title forState:(SVPullToRefreshState)state;
+- (void)setSubtitle:(nonnull NSString *)subtitle forState:(SVPullToRefreshState)state;
+- (void)setCustomView:(nullable UIView *)view forState:(SVPullToRefreshState)state;
 - (void)updateOriginalContentInset:(UIEdgeInsets)newOriginalContentInset;
 
 - (void)startAnimating;
 - (void)stopAnimating;
 
 // deprecated; use setSubtitle:forState: instead
-@property (nonatomic, strong, readonly) UILabel *dateLabel DEPRECATED_ATTRIBUTE;
-@property (nonatomic, strong) NSDate *lastUpdatedDate DEPRECATED_ATTRIBUTE;
-@property (nonatomic, strong) NSDateFormatter *dateFormatter DEPRECATED_ATTRIBUTE;
+@property (nonnull, nonatomic, strong, readonly) UILabel *dateLabel DEPRECATED_ATTRIBUTE;
+@property (nonnull, nonatomic, strong) NSDate *lastUpdatedDate DEPRECATED_ATTRIBUTE;
+@property (nonnull, nonatomic, strong) NSDateFormatter *dateFormatter DEPRECATED_ATTRIBUTE;
 
 // deprecated; use [self.scrollView triggerPullToRefresh] instead
 - (void)triggerRefresh DEPRECATED_ATTRIBUTE;
