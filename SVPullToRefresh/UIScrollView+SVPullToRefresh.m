@@ -229,10 +229,13 @@ static char UIScrollViewPullToRefreshView;
                 [self rotateArrow:0 hide:NO];
                 break;
                 
-            case SVPullToRefreshStateTriggered:
-                [self rotateArrow:(float)M_PI hide:NO];
-                break;
-                
+			case SVPullToRefreshStateTriggered: {
+				[self rotateArrow:(float)M_PI hide:NO];
+				UIImpactFeedbackGenerator *generator = [UIImpactFeedbackGenerator new];
+				[generator impactOccurred];
+				break;
+			}
+
             case SVPullToRefreshStateLoading:
                 [self.activityIndicatorView startAnimating];
                 [self rotateArrow:0 hide:YES];
