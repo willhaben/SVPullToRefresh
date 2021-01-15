@@ -257,11 +257,12 @@ static char UIScrollViewPullToRefreshView;
                 
             case SVPullToRefreshStateTriggered:
                 switch (self.position) {
-                    case SVPullToRefreshPositionTop:
+                    case SVPullToRefreshPositionTop: {
                         [self rotateArrow:(float)M_PI hide:NO];
                         UIImpactFeedbackGenerator *generator = [UIImpactFeedbackGenerator new];
                         [generator impactOccurred];
                         break;
+                    }
                     case SVPullToRefreshPositionBottom:
                         [self rotateArrow:0 hide:NO];
                         break;
