@@ -187,8 +187,10 @@ UIEdgeInsets scrollViewOriginalContentInsets;
                               delay:0
                             options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState
                          animations:^{
-                             self.scrollView.contentInset = contentInset;
-                         }
+                            if (self != nil) {
+                                self.scrollView.contentInset = contentInset;
+                            }
+                        }
                          completion:NULL];
     }
     else {
@@ -316,6 +318,7 @@ UIEdgeInsets scrollViewOriginalContentInsets;
                 break;
                 
             case SVInfiniteScrollingStateTriggered:
+                [self.activityIndicatorView startAnimating];
                 break;
                 
             case SVInfiniteScrollingStateLoading:
