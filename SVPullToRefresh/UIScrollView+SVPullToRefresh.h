@@ -15,13 +15,7 @@
 
 @interface UIScrollView (SVPullToRefresh)
 
-typedef NS_ENUM(NSUInteger, SVPullToRefreshPosition) {
-    SVPullToRefreshPositionTop = 0,
-    SVPullToRefreshPositionBottom,
-};
-
 - (void)addPullToRefreshWithActionHandler:(nullable void (^)(void))actionHandler;
-- (void)addPullToRefreshWithActionHandler:(nullable void (^)(void))actionHandler position:(SVPullToRefreshPosition)position;
 - (void)triggerPullToRefresh;
 
 @property (nullable, nonatomic, strong, readonly) SVPullToRefreshView *pullToRefreshView;
@@ -47,7 +41,6 @@ typedef NS_ENUM(NSUInteger, SVPullToRefreshState) {
 @property (nonatomic, readwrite) UIActivityIndicatorViewStyle activityIndicatorViewStyle;
 
 @property (nonatomic, readonly) SVPullToRefreshState state;
-@property (nonatomic, readonly) SVPullToRefreshPosition position;
 
 - (void)setTitle:(nonnull NSString *)title forState:(SVPullToRefreshState)state;
 - (void)setSubtitle:(nonnull NSString *)subtitle forState:(SVPullToRefreshState)state;
